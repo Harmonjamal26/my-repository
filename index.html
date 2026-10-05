@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jamal Harmon | Portfolio</title>
-<meta name="description" content="Portfolio of Jamal Harmon: bio, about, skills, and selected projects.">
+<title>Jamal Harmon | IT and Cybersecurity Portfolio</title>
+<meta name="description" content="Portfolio and resume of Jamal Harmon, an Information Technology and Cybersecurity student.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -104,10 +104,23 @@
   /* Skills */
   .skill-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
   .skill-groups h3 { font-size: 1.35rem; margin-bottom: 1.1rem; }
-  .skill { margin-bottom: 1.1rem; }
-  .skill div.row { display: flex; justify-content: space-between; font-family: var(--display); font-weight: 500; font-size: 1rem; margin-bottom: .35rem; }
-  .meter { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
-  .meter i { display: block; height: 100%; width: var(--lvl); background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: 4px; }
+
+  /* Skill chips */
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0; }
+  .chips li { font-family: var(--display); font-weight: 500; font-size: .95rem; padding: .4rem .85rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+  .also { margin-top: 2.5rem; color: var(--muted); }
+
+  /* Resume entries */
+  .sub { font-size: 1.5rem; margin: 3rem 0 1rem; }
+  .sub:first-of-type { margin-top: 0; }
+  .entry { display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem; padding: 1.5rem 0; border-top: 1px solid var(--line); }
+  .entry:last-child { border-bottom: 1px solid var(--line); }
+  .entry .when { font-family: var(--display); font-weight: 500; font-size: 1rem; color: var(--muted); }
+  .entry h4 { font-family: var(--display); font-size: 1.3rem; line-height: 1.2; margin: 0 0 .25rem; }
+  .entry .where { font-family: var(--display); font-weight: 500; color: var(--accent); margin: 0 0 .8rem; }
+  .entry ul { margin: 0; padding-left: 1.2rem; max-width: 62ch; }
+  .entry li { margin-bottom: .35rem; }
+  .entry p { margin-bottom: .5rem; }
 
   /* Projects */
   .filters { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2rem; }
@@ -175,6 +188,7 @@
     .bio-grid, .about-grid { grid-template-columns: 1fr; }
     .portrait { max-width: 320px; aspect-ratio: 1; }
     .skill-groups, .gallery { grid-template-columns: 1fr; }
+    .entry { grid-template-columns: 1fr; gap: .4rem; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -193,6 +207,7 @@
         <li><a href="#bio">Bio</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
       </ul>
     </nav>
@@ -206,11 +221,11 @@
     <div class="wrap bio-grid">
       <div>
         <h1>Jamal Harmon</h1>
-        <p class="role">Web developer and designer</p>
-        <p class="lead">I build fast, accessible websites and apps that are easy to use and easy to maintain. I like turning messy ideas into clear, working products.</p>
+        <p class="role">Information Technology and Cybersecurity student</p>
+        <p class="lead">Senior at William Paterson University, graduating March 2027. I'm a former warehouse team lead with experience leading teams, coordinating daily operations, and solving technical problems, and I'm looking for an IT role where I can put both to work.</p>
         <div class="btns">
-          <a class="btn" href="#projects">See my work</a>
-          <a class="btn ghost" href="mailto:jamal@example.com">Email me</a>
+          <a class="btn" href="JamalHarmonResume.pdf" download>Download resume</a>
+          <a class="btn ghost" href="mailto:harmon_jamal@yahoo.com">Email me</a>
         </div>
       </div>
       <div class="portrait" role="img" aria-label="Placeholder for a portrait of Jamal Harmon">
@@ -225,15 +240,16 @@
       <h2>About me</h2>
       <div class="about-grid">
         <div>
-          <p>I started out tinkering with websites for friends and local businesses, and that turned into a career building products for real people. I care about the details that make a site feel simple: clear writing, sensible layouts, and pages that load quickly on any device.</p>
-          <p>I work well with designers, writers, and other developers, and I enjoy explaining technical choices in plain language. Outside of work you can find me learning new tools, reading, and exploring new places.</p>
+          <p>I'm an Information Technology and Cybersecurity senior at William Paterson University. My coursework covers network fundamentals, systems administration, cybersecurity principles, database management, and cloud computing.</p>
+          <p>Before moving into IT, I worked as a Warehouse Team Lead at Rinchem Co., where I led and trained a team, coordinated daily operations, and kept accurate documentation and compliance records. I bring that same leadership and attention to detail to technical work.</p>
+          <p>I'm currently working toward my CompTIA A+ certification.</p>
         </div>
         <ul class="facts">
-          <li><b>Based in</b><span>Your city, State</span></li>
-          <li><b>Experience</b><span>5+ years</span></li>
-          <li><b>Focus</b><span>Front-end and UX</span></li>
-          <li><b>Availability</b><span>Open to freelance work</span></li>
-          <li><b>Email</b><span>jamal@example.com</span></li>
+          <li><b>Based in</b><span>Hopatcong, NJ</span></li>
+          <li><b>Studying</b><span>B.S. in IT and Cybersecurity</span></li>
+          <li><b>Graduating</b><span>March 2027</span></li>
+          <li><b>Certification</b><span>CompTIA A+ (in progress)</span></li>
+          <li><b>Email</b><span>harmon_jamal@yahoo.com</span></li>
         </ul>
       </div>
     </div>
@@ -245,24 +261,67 @@
       <h2>Skills</h2>
       <div class="skill-groups">
         <div>
-          <h3>Front-end</h3>
-          <div class="skill"><div class="row"><span>HTML and CSS</span><span>Expert</span></div><div class="meter"><i style="--lvl:95%"></i></div></div>
-          <div class="skill"><div class="row"><span>JavaScript</span><span>Advanced</span></div><div class="meter"><i style="--lvl:85%"></i></div></div>
-          <div class="skill"><div class="row"><span>React</span><span>Advanced</span></div><div class="meter"><i style="--lvl:80%"></i></div></div>
+          <h3>Systems and networking</h3>
+          <ul class="chips">
+            <li>Windows 10/11</li><li>Linux (Ubuntu)</li><li>macOS</li><li>TCP/IP</li><li>DNS</li><li>DHCP</li><li>LAN/WAN</li>
+          </ul>
         </div>
         <div>
-          <h3>Back-end</h3>
-          <div class="skill"><div class="row"><span>Node.js</span><span>Advanced</span></div><div class="meter"><i style="--lvl:75%"></i></div></div>
-          <div class="skill"><div class="row"><span>SQL and databases</span><span>Intermediate</span></div><div class="meter"><i style="--lvl:65%"></i></div></div>
-          <div class="skill"><div class="row"><span>REST APIs</span><span>Advanced</span></div><div class="meter"><i style="--lvl:80%"></i></div></div>
+          <h3>Tools and scripting</h3>
+          <ul class="chips">
+            <li>Microsoft 365</li><li>Active Directory (basic)</li><li>ServiceNow (basic)</li><li>PowerShell (basic)</li><li>Bash (basic)</li>
+          </ul>
         </div>
         <div>
-          <h3>Design and tools</h3>
-          <div class="skill"><div class="row"><span>UI design</span><span>Advanced</span></div><div class="meter"><i style="--lvl:80%"></i></div></div>
-          <div class="skill"><div class="row"><span>Accessibility</span><span>Advanced</span></div><div class="meter"><i style="--lvl:85%"></i></div></div>
-          <div class="skill"><div class="row"><span>Git and GitHub</span><span>Expert</span></div><div class="meter"><i style="--lvl:90%"></i></div></div>
+          <h3>Support and security</h3>
+          <ul class="chips">
+            <li>PC setup and imaging</li><li>Troubleshooting</li><li>User access control</li><li>Malware removal</li><li>Endpoint protection</li><li>SOPs and ticket documentation</li>
+          </ul>
         </div>
       </div>
+      <p class="also">Also: strong communication and leadership skills.</p>
+    </div>
+  </section>
+
+  <!-- Experience and education -->
+  <section class="block" id="experience">
+    <div class="wrap">
+      <h2>Experience and education</h2>
+
+      <h3 class="sub">Work experience</h3>
+      <article class="entry">
+        <div class="when">2018 to 2020</div>
+        <div>
+          <h4>Warehouse Team Lead</h4>
+          <p class="where">Rinchem Co., Flemington, NJ</p>
+          <ul>
+            <li>Led and trained a team of associates to meet productivity and safety goals</li>
+            <li>Coordinated daily operations, including inventory movement, shipping, and receiving</li>
+            <li>Resolved workflow and system-related issues while acting as liaison with management</li>
+            <li>Maintained accurate documentation and compliance records</li>
+            <li>Performed order picking, packing, and inventory control with high accuracy</li>
+            <li>Assisted with system data entry and inventory audits</li>
+            <li>Supported process improvements that increased operational efficiency</li>
+          </ul>
+        </div>
+      </article>
+
+      <h3 class="sub">Education</h3>
+      <article class="entry">
+        <div class="when">Expected March 2027</div>
+        <div>
+          <h4>Bachelor of Science in Information Technology and Cybersecurity</h4>
+          <p class="where">William Paterson University of New Jersey, Wayne, NJ</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="when">2024</div>
+        <div>
+          <h4>Associate of Science</h4>
+          <p class="where">Union County College of New Jersey, Cranford, NJ</p>
+          <p>Relevant coursework: Network Fundamentals, Systems Administration, Cybersecurity Principles, Database Management, Cloud Computing</p>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -272,63 +331,32 @@
       <h2>Projects</h2>
       <div class="filters" role="group" aria-label="Filter projects">
         <button type="button" data-filter="all" aria-pressed="true">All</button>
-        <button type="button" data-filter="web" aria-pressed="false">Websites</button>
-        <button type="button" data-filter="app" aria-pressed="false">Apps</button>
-        <button type="button" data-filter="design" aria-pressed="false">Design</button>
+        <button type="button" data-filter="it" aria-pressed="false">IT</button>
+        <button type="button" data-filter="work" aria-pressed="false">Workplace</button>
       </div>
       <div class="gallery" id="gallery">
-        <article class="project" data-cat="web">
+        <article class="project" data-cat="it">
           <div class="thumb t1" aria-hidden="true"><i></i><i></i><i></i></div>
           <div class="info">
-            <h3>Local Bakery Website</h3>
-            <p>A fast, mobile-first site with an online menu and order form for a neighborhood bakery.</p>
-            <div class="tags">HTML, CSS, JavaScript</div>
-            <a class="view" href="#">View project</a>
+            <h3>IT Networking Project</h3>
+            <p>Designed and configured a small network with IP addressing, DNS, and basic security.</p>
+            <div class="tags">IP addressing, DNS, Security</div>
           </div>
         </article>
-        <article class="project" data-cat="app">
-          <div class="thumb t3" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-          <div class="info">
-            <h3>Budget Tracker</h3>
-            <p>A simple app for logging expenses and seeing monthly spending trends at a glance.</p>
-            <div class="tags">React, Node.js</div>
-            <a class="view" href="#">View project</a>
-          </div>
-        </article>
-        <article class="project" data-cat="design">
-          <div class="thumb t2" aria-hidden="true"><i></i><i></i><i></i></div>
-          <div class="info">
-            <h3>Brand Identity Kit</h3>
-            <p>Logo, color palette, and type system for a small community nonprofit.</p>
-            <div class="tags">Branding, Figma</div>
-            <a class="view" href="#">View project</a>
-          </div>
-        </article>
-        <article class="project" data-cat="web">
+        <article class="project" data-cat="it">
           <div class="thumb t4" aria-hidden="true"><i></i><i></i></div>
           <div class="info">
-            <h3>Photography Portfolio</h3>
-            <p>A clean, image-focused gallery site for a freelance photographer with fast-loading previews.</p>
-            <div class="tags">HTML, CSS</div>
-            <a class="view" href="#">View project</a>
+            <h3>Help Desk Simulation</h3>
+            <p>Resolved Tier 1 IT support tickets and documented each solution.</p>
+            <div class="tags">Tier 1 support, Ticket documentation</div>
           </div>
         </article>
-        <article class="project" data-cat="app">
-          <div class="thumb t5" aria-hidden="true"><i></i><i></i></div>
-          <div class="info">
-            <h3>Plant Care Reminders</h3>
-            <p>A mobile-friendly web app that reminds users when to water and feed their plants.</p>
-            <div class="tags">JavaScript, Firebase</div>
-            <a class="view" href="#">View project</a>
-          </div>
-        </article>
-        <article class="project" data-cat="design">
+        <article class="project" data-cat="work">
           <div class="thumb t6" aria-hidden="true"><i></i><i></i><i></i></div>
           <div class="info">
-            <h3>Event Poster Series</h3>
-            <p>A set of print and social posters for a yearly music festival.</p>
-            <div class="tags">Illustration, Layout</div>
-            <a class="view" href="#">View project</a>
+            <h3>Safety Projects</h3>
+            <p>Presented successful safety projects that demonstrated core company standards and values.</p>
+            <div class="tags">Safety, Presentation</div>
           </div>
         </article>
       </div>
@@ -340,9 +368,9 @@
   <div class="wrap row">
     <span>&copy; <span id="year">2026</span> Jamal Harmon</span>
     <ul>
-      <li><a href="mailto:jamal@example.com">Email</a></li>
-      <li><a href="#">GitHub</a></li>
-      <li><a href="#">LinkedIn</a></li>
+      <li><a href="mailto:harmon_jamal@yahoo.com">harmon_jamal@yahoo.com</a></li>
+      <li><a href="tel:+18484686677">(848) 468-6677</a></li>
+      <li><a href="JamalHarmonResume.pdf" download>Resume (PDF)</a></li>
     </ul>
   </div>
 </footer>
