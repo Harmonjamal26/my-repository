@@ -119,8 +119,8 @@
   .filters button:hover { border-color: var(--accent); }
   .filters button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
   .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .project { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; transition: border-color .2s ease; }
-  .project:hover { border-color: var(--accent); }
+  .project { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; transition: transform .25s ease, box-shadow .25s ease, border-color .2s ease; }
+  .project:hover, .project:focus-within { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 16px 32px rgba(0,0,0,.45); }
   .project[hidden] { display: none; }
   .thumb { aspect-ratio: 16 / 10; position: relative; overflow: hidden; }
   .thumb i { position: absolute; display: block; }
