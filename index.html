@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jamal Harmon | Portfolio</title>
+<meta name="description" content="Portfolio of Jamal Harmon: bio, about, skills, and selected projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #eef1f4;
+    --surface: #ffffff;
+    --ink: #1b2a41;
+    --muted: #55637a;
+    --line: #cfd6df;
+    --accent: #2f54eb;
+    --accent-ink: #ffffff;
+    --sun: #f2b134;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "Newsreader", Georgia, "Times New Roman", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121a28;
+      --surface: #1b2638;
+      --ink: #e8edf5;
+      --muted: #9aa8bf;
+      --line: #2e3b52;
+      --accent: #7f9bff;
+      --accent-ink: #101828;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.15rem;
+    line-height: 1.65;
+  }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; }
+  p { margin: 0 0 1em; max-width: 62ch; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .wrap { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
+
+  /* Header */
+  header.site {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar { display: flex; align-items: center; justify-content: space-between; min-height: 4rem; gap: 1rem; }
+  .brand { font-family: var(--display); font-weight: 800; font-size: 1.35rem; text-decoration: none; letter-spacing: -0.01em; }
+  nav ul { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; font-family: var(--display); font-weight: 500; font-size: 1rem; }
+  nav a { text-decoration: none; padding: .25rem 0; border-bottom: 2px solid transparent; }
+  nav a:hover { border-color: var(--accent); }
+  .menu-btn {
+    display: none; background: none; border: 1px solid var(--line); color: var(--ink);
+    font-family: var(--display); font-weight: 500; font-size: 1rem;
+    padding: .45rem .9rem; border-radius: 6px; cursor: pointer;
+  }
+
+  /* Bio / hero */
+  .bio { padding: clamp(3rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5rem); }
+  .bio-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+  .bio h1 { font-size: clamp(3.2rem, 11vw, 7.5rem); font-weight: 800; letter-spacing: -0.035em; }
+  .bio .role { font-family: var(--display); font-weight: 500; font-size: clamp(1.15rem, 2.4vw, 1.5rem); color: var(--muted); margin: 1.25rem 0 1.5rem; }
+  .bio p.lead { font-size: 1.3rem; }
+  .btns { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 1.75rem; }
+  .btn {
+    display: inline-block; font-family: var(--display); font-weight: 700; font-size: 1rem;
+    padding: .8rem 1.4rem; border-radius: 6px; text-decoration: none;
+    background: var(--accent); color: var(--accent-ink); border: 2px solid var(--accent);
+    transition: transform .15s ease;
+  }
+  .btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn:hover { transform: translateY(-2px); }
+  .portrait {
+    aspect-ratio: 4 / 5; background: var(--sun); border-radius: 6px; position: relative; overflow: hidden;
+  }
+  .portrait::before {
+    content: ""; position: absolute; width: 56%; aspect-ratio: 1; border-radius: 50%;
+    background: var(--ink); left: 22%; top: 18%;
+  }
+  .portrait::after {
+    content: ""; position: absolute; width: 96%; aspect-ratio: 1; border-radius: 50%;
+    background: var(--ink); left: 2%; top: 62%;
+  }
+  .portrait span {
+    position: absolute; left: 1rem; bottom: .8rem; z-index: 2; font-family: var(--display);
+    font-size: .85rem; font-weight: 500; color: var(--sun);
+  }
+
+  /* Sections */
+  section.block { padding: clamp(3rem, 7vw, 5.5rem) 0; border-top: 1px solid var(--line); }
+  .block h2 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 2rem; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 4.5rem); }
+  .facts { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .facts li { display: flex; justify-content: space-between; gap: 1rem; padding: .9rem 0; border-bottom: 1px solid var(--line); }
+  .facts b { font-family: var(--display); font-weight: 700; }
+  .facts span { color: var(--muted); text-align: right; }
+
+  /* Skills */
+  .skill-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+  .skill-groups h3 { font-size: 1.35rem; margin-bottom: 1.1rem; }
+  .skill { margin-bottom: 1.1rem; }
+  .skill div.row { display: flex; justify-content: space-between; font-family: var(--display); font-weight: 500; font-size: 1rem; margin-bottom: .35rem; }
+  .meter { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .meter i { display: block; height: 100%; width: var(--lvl); background: var(--accent); border-radius: 4px; }
+
+  /* Projects */
+  .filters { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2rem; }
+  .filters button {
+    font-family: var(--display); font-weight: 500; font-size: .95rem; cursor: pointer;
+    padding: .5rem 1.1rem; border-radius: 999px; border: 1px solid var(--line);
+    background: var(--surface); color: var(--ink);
+  }
+  .filters button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .project { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; }
+  .project[hidden] { display: none; }
+  .thumb { aspect-ratio: 16 / 10; position: relative; overflow: hidden; }
+  .thumb i { position: absolute; display: block; }
+  .t1 { background: #2f54eb; }
+  .t1 i:nth-child(1) { width: 60%; height: 12%; background: #fff; left: 10%; top: 18%; border-radius: 3px; }
+  .t1 i:nth-child(2) { width: 38%; height: 40%; background: #f2b134; left: 10%; top: 42%; border-radius: 3px; }
+  .t1 i:nth-child(3) { width: 34%; height: 40%; background: rgba(255,255,255,.25); left: 56%; top: 42%; border-radius: 3px; }
+  .t2 { background: #f2b134; }
+  .t2 i:nth-child(1) { width: 70%; aspect-ratio: 1; border-radius: 50%; background: #1b2a41; left: -10%; top: 20%; }
+  .t2 i:nth-child(2) { width: 40%; aspect-ratio: 1; border-radius: 50%; background: #fff; right: 8%; top: 12%; }
+  .t2 i:nth-child(3) { width: 18%; aspect-ratio: 1; background: #2f54eb; right: 16%; bottom: 12%; }
+  .t3 { background: #1b2a41; }
+  .t3 i { bottom: 0; width: 12%; background: #7f9bff; border-radius: 3px 3px 0 0; }
+  .t3 i:nth-child(1) { left: 12%; height: 38%; }
+  .t3 i:nth-child(2) { left: 32%; height: 62%; background: #f2b134; }
+  .t3 i:nth-child(3) { left: 52%; height: 48%; }
+  .t3 i:nth-child(4) { left: 72%; height: 78%; background: #fff; }
+  .t4 { background: #dfe6ff; }
+  .t4 i:nth-child(1) { width: 80%; height: 56%; left: 10%; top: 14%; background: #fff; border: 3px solid #1b2a41; border-radius: 8px; }
+  .t4 i:nth-child(2) { width: 30%; height: 14%; left: 35%; bottom: 8%; background: #1b2a41; border-radius: 3px; }
+  .t5 { background: #e9f6ee; }
+  .t5 i:nth-child(1) { width: 46%; height: 46%; left: 14%; top: 20%; background: #1f9d55; border-radius: 50% 0 50% 0; }
+  .t5 i:nth-child(2) { width: 36%; height: 36%; left: 46%; top: 38%; background: #1b2a41; border-radius: 0 50% 0 50%; }
+  .t6 { background: #ffe3e0; }
+  .t6 i:nth-child(1) { width: 100%; height: 14%; left: 0; top: 22%; background: #e5484d; }
+  .t6 i:nth-child(2) { width: 100%; height: 14%; left: 0; top: 46%; background: #1b2a41; }
+  .t6 i:nth-child(3) { width: 100%; height: 14%; left: 0; top: 70%; background: #e5484d; }
+  .project .info { padding: 1.2rem 1.3rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
+  .project h3 { font-size: 1.3rem; margin-bottom: .5rem; }
+  .project p { font-size: 1.02rem; color: var(--muted); margin-bottom: 1rem; }
+  .project .tags { margin-top: auto; font-family: var(--display); font-size: .88rem; color: var(--muted); }
+  .project a.view { font-family: var(--display); font-weight: 700; font-size: .95rem; margin-top: .9rem; }
+
+  /* Contact / footer */
+  footer.site { border-top: 1px solid var(--line); padding: 2.5rem 0 3rem; font-family: var(--display); font-size: 1rem; }
+  footer .row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+  footer ul { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .skill-groups, .gallery { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .menu-btn { display: block; }
+    nav ul {
+      display: none; position: absolute; left: 0; right: 0; top: 100%;
+      flex-direction: column; gap: 0; background: var(--bg);
+      border-bottom: 1px solid var(--line); padding: .5rem 1.25rem 1rem;
+    }
+    nav ul.open { display: flex; }
+    nav li a { display: block; padding: .8rem 0; }
+    .bio-grid, .about-grid { grid-template-columns: 1fr; }
+    .portrait { max-width: 320px; aspect-ratio: 1; }
+    .skill-groups, .gallery { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top">Jamal Harmon</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav aria-label="Main">
+      <ul id="menu">
+        <li><a href="#bio">Bio</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Bio -->
+  <section class="bio" id="bio">
+    <div class="wrap bio-grid">
+      <div>
+        <h1>Jamal Harmon</h1>
+        <p class="role">Web developer and designer</p>
+        <p class="lead">I build fast, accessible websites and apps that are easy to use and easy to maintain. I like turning messy ideas into clear, working products.</p>
+        <div class="btns">
+          <a class="btn" href="#projects">See my work</a>
+          <a class="btn ghost" href="mailto:jamal@example.com">Email me</a>
+        </div>
+      </div>
+      <div class="portrait" role="img" aria-label="Placeholder for a portrait of Jamal Harmon">
+        <span>Add your photo here</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="block" id="about">
+    <div class="wrap">
+      <h2>About me</h2>
+      <div class="about-grid">
+        <div>
+          <p>I started out tinkering with websites for friends and local businesses, and that turned into a career building products for real people. I care about the details that make a site feel simple: clear writing, sensible layouts, and pages that load quickly on any device.</p>
+          <p>I work well with designers, writers, and other developers, and I enjoy explaining technical choices in plain language. Outside of work you can find me learning new tools, reading, and exploring new places.</p>
+        </div>
+        <ul class="facts">
+          <li><b>Based in</b><span>Your city, State</span></li>
+          <li><b>Experience</b><span>5+ years</span></li>
+          <li><b>Focus</b><span>Front-end and UX</span></li>
+          <li><b>Availability</b><span>Open to freelance work</span></li>
+          <li><b>Email</b><span>jamal@example.com</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="block" id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <div class="skill-groups">
+        <div>
+          <h3>Front-end</h3>
+          <div class="skill"><div class="row"><span>HTML and CSS</span><span>Expert</span></div><div class="meter"><i style="--lvl:95%"></i></div></div>
+          <div class="skill"><div class="row"><span>JavaScript</span><span>Advanced</span></div><div class="meter"><i style="--lvl:85%"></i></div></div>
+          <div class="skill"><div class="row"><span>React</span><span>Advanced</span></div><div class="meter"><i style="--lvl:80%"></i></div></div>
+        </div>
+        <div>
+          <h3>Back-end</h3>
+          <div class="skill"><div class="row"><span>Node.js</span><span>Advanced</span></div><div class="meter"><i style="--lvl:75%"></i></div></div>
+          <div class="skill"><div class="row"><span>SQL and databases</span><span>Intermediate</span></div><div class="meter"><i style="--lvl:65%"></i></div></div>
+          <div class="skill"><div class="row"><span>REST APIs</span><span>Advanced</span></div><div class="meter"><i style="--lvl:80%"></i></div></div>
+        </div>
+        <div>
+          <h3>Design and tools</h3>
+          <div class="skill"><div class="row"><span>UI design</span><span>Advanced</span></div><div class="meter"><i style="--lvl:80%"></i></div></div>
+          <div class="skill"><div class="row"><span>Accessibility</span><span>Advanced</span></div><div class="meter"><i style="--lvl:85%"></i></div></div>
+          <div class="skill"><div class="row"><span>Git and GitHub</span><span>Expert</span></div><div class="meter"><i style="--lvl:90%"></i></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="block" id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="web" aria-pressed="false">Websites</button>
+        <button type="button" data-filter="app" aria-pressed="false">Apps</button>
+        <button type="button" data-filter="design" aria-pressed="false">Design</button>
+      </div>
+      <div class="gallery" id="gallery">
+        <article class="project" data-cat="web">
+          <div class="thumb t1" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="info">
+            <h3>Local Bakery Website</h3>
+            <p>A fast, mobile-first site with an online menu and order form for a neighborhood bakery.</p>
+            <div class="tags">HTML, CSS, JavaScript</div>
+            <a class="view" href="#">View project</a>
+          </div>
+        </article>
+        <article class="project" data-cat="app">
+          <div class="thumb t3" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="info">
+            <h3>Budget Tracker</h3>
+            <p>A simple app for logging expenses and seeing monthly spending trends at a glance.</p>
+            <div class="tags">React, Node.js</div>
+            <a class="view" href="#">View project</a>
+          </div>
+        </article>
+        <article class="project" data-cat="design">
+          <div class="thumb t2" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="info">
+            <h3>Brand Identity Kit</h3>
+            <p>Logo, color palette, and type system for a small community nonprofit.</p>
+            <div class="tags">Branding, Figma</div>
+            <a class="view" href="#">View project</a>
+          </div>
+        </article>
+        <article class="project" data-cat="web">
+          <div class="thumb t4" aria-hidden="true"><i></i><i></i></div>
+          <div class="info">
+            <h3>Photography Portfolio</h3>
+            <p>A clean, image-focused gallery site for a freelance photographer with fast-loading previews.</p>
+            <div class="tags">HTML, CSS</div>
+            <a class="view" href="#">View project</a>
+          </div>
+        </article>
+        <article class="project" data-cat="app">
+          <div class="thumb t5" aria-hidden="true"><i></i><i></i></div>
+          <div class="info">
+            <h3>Plant Care Reminders</h3>
+            <p>A mobile-friendly web app that reminds users when to water and feed their plants.</p>
+            <div class="tags">JavaScript, Firebase</div>
+            <a class="view" href="#">View project</a>
+          </div>
+        </article>
+        <article class="project" data-cat="design">
+          <div class="thumb t6" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="info">
+            <h3>Event Poster Series</h3>
+            <p>A set of print and social posters for a yearly music festival.</p>
+            <div class="tags">Illustration, Layout</div>
+            <a class="view" href="#">View project</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap row">
+    <span>&copy; <span id="year">2026</span> Jamal Harmon</span>
+    <ul>
+      <li><a href="mailto:jamal@example.com">Email</a></li>
+      <li><a href="#">GitHub</a></li>
+      <li><a href="#">LinkedIn</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+  menuBtn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  menu.addEventListener('click', e => {
+    if (e.target.tagName === 'A') {
+      menu.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Project filter
+  const buttons = document.querySelectorAll('.filters button');
+  const projects = document.querySelectorAll('.project');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.setAttribute('aria-pressed', b === btn));
+      const f = btn.dataset.filter;
+      projects.forEach(p => { p.hidden = f !== 'all' && p.dataset.cat !== f; });
+    });
+  });
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
